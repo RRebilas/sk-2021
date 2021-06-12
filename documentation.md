@@ -1,5 +1,5 @@
-#Zadanie 1
-##Charakterystyka sieci:
+# Zadanie 1
+## Charakterystyka sieci:
 * usługa DHCP do nadawania adresów w sposób automatyczny dla wszystkich stacji roboczych
 * serwer i drukarka posiadają stałe adresy celem zminimalizowania potrzeby rekonfiguracji ustawień klientów
 * translacja nazw domenowych:
@@ -8,20 +8,20 @@
     - router.mojaorganizacja.pl
 * połączenie wszystkich urządzeń z siecią Internet za pomocą bramy NAT
 * wykorzystanie podsieci rozmiaru /22
-##Adresy sieci IP:
+## Adresy sieci IP:
 
 | net | netmask | addr_min | addr_max | hosts |
 |-------------|-------|----------|----------|---------------|
 |66.170.200.0|255.255.252.0|66.170.200.1|66.170.203.254|1024|
 
-##Wykorzystane oprogramowanie:
+## Wykorzystane oprogramowanie:
 * Projekt sieci: CISCO PACKET TRACER
 * Konfiguracja prototypu rozwiązania: VirtualBox / maszyny wirtualne Alpine Linux
 * Konfiguracja NAT: iptables
 * Konfiguracja DNS: dnsmasq
 * Konfiguracja DHCP: ISC DHCP
-##Kluczowa konfiguracja
-* ###konfiguracja NAT z iptables
+## Kluczowa konfiguracja
+* ### konfiguracja NAT z iptables
   - router posiada dwa interfejsy:
     - eth0 - połączenie z siecią WAN
     - eth1 - połączenie z siecią lokalną, adres: 66.170.200.1
@@ -31,7 +31,7 @@
     echo 1 > /proc/sys/net/ipv4/ip_forward 
     ```
   
-* ###konfiguracja DHCP
+* ### konfiguracja DHCP
     
   | subnet | netmask | range | router | domain-name-servers |
   |--------|---------|-------|--------|---------------------|
@@ -60,7 +60,7 @@
   }
   ```
 
-* ###konfiguracja DNS:
+* ### konfiguracja DNS:
   - adres serwera DNS: 66.170.200.2
   - konfiguracja pliku /etc/hosts:
   
@@ -70,7 +70,7 @@
   | drukarka.mojaorganizacja.pl | 66.170.200.11 |
   | router.mojaorganizacja.pl | 66.170.200.1 |
   
-* ###konfiguracja interfejsów sieciowych:
+* ### konfiguracja interfejsów sieciowych:
   | device name | interfejs | ip address |
   |-------------|-----------|------------|
   | router | eth1 LAN | 66.170.200.1 |
